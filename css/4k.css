@@ -43,5 +43,15 @@
     .button:hover {
         background-color: rgba(240, 128, 26, .25);
     }
+
+
+    .top-navbar {
+        height: 100px;
+    }
+    
+    .top-navbar a {
+        font-size: 3rem;
+        line-height: 100px;
+    }
     
 }
