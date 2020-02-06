@@ -11,6 +11,22 @@ $(viewportClass).each(function (i, obj) {
     var id = viewportID + i;
     viewportList.push(id);
     $(this).attr('id', id);
+
+    $($(this).find(".button")).each(function (j, obj) {
+        var btnId = $(this).attr("id");
+        $(this).attr("id", id + "-" + btnId);
+
+        // console.log("ID " + j + ": " + btnId + id);
+    });
+
+    $($(this).find(".tab")).each(function (j, obj) {
+        var btnId = $(this).attr("id");
+        $(this).attr("id", id + "-" + btnId);
+
+        // console.log("ID " + j + ": " + btnId + id);
+    });
+    
+    //$(this).find(".button").attr("id", id);
 });
 
 var currentViewportPos = 0;
@@ -203,16 +219,19 @@ document.addEventListener('wheel', preventDefault, { passive: false });
 
 $(".button").click(function() {
     //alert("click on " + $(this).attr("class") + " " + $(this).attr("id"));
-    if ($(this).attr("id") === "tech") {
-        $(this).addClass("button-selected");
-        $(".button#visual").removeClass("button-selected");
-        $(".detail-row#tech").show();
-        $(".detail-row#visual").hide();
-    } else {
-        $(this).addClass("button-selected");
-        $(".button#tech").removeClass("button-selected");
-        $(".detail-row#tech").hide();
-        $(".detail-row#visual").show();
+
+    for (var i = 0; i < viewportList.length; i++) {
+        if ($(this).attr("id") === viewportList[i] + "-tech") {
+            $(this).addClass("button-selected");
+            $(".button#" + viewportList[i] + "-visual").removeClass("button-selected");
+            $(".tab#" + viewportList[i] + "-tech").show();
+            $(".tab#" + viewportList[i] + "-visual").hide();
+        } else {
+            $(this).addClass("button-selected");
+            $(".button#" + viewportList[i] + "-tech").removeClass("button-selected");
+            $(".tab#" + viewportList[i] + "-tech").hide();
+            $(".tab#" + viewportList[i] + "-visual").show();
+        }
     }
 
 })
