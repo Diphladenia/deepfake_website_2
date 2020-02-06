@@ -14,6 +14,7 @@ $(viewportClass).each(function (i, obj) {
 });
 
 var currentViewportPos = 0;
+
 var currentViewport = viewportList[0];
 var targetViewport = viewportList[0];
 
@@ -40,8 +41,15 @@ viewport.registerListener(function(val) {
 //
 // On scroll update
 //
+checkVisibility();
+
 $(window).scroll(function () {
 
+    checkVisibility();
+
+});
+
+function checkVisibility() {
     var currentVisibility = 0;
 
     $(viewportClass).each(function (i, obj) {
@@ -61,8 +69,7 @@ $(window).scroll(function () {
     }
 
     mostVisiblePrec = currentViewport;
-
-});
+}
 
 //
 // Helpers
@@ -193,3 +200,19 @@ function enableScroll() {
 }
 
 document.addEventListener('wheel', preventDefault, { passive: false });
+
+$(".button").click(function() {
+    //alert("click on " + $(this).attr("class") + " " + $(this).attr("id"));
+    if ($(this).attr("id") === "tech") {
+        $(this).addClass("button-selected");
+        $(".button#visual").removeClass("button-selected");
+        $(".detail-row#tech").show();
+        $(".detail-row#visual").hide();
+    } else {
+        $(this).addClass("button-selected");
+        $(".button#tech").removeClass("button-selected");
+        $(".detail-row#tech").hide();
+        $(".detail-row#visual").show();
+    }
+
+})

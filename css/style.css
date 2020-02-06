@@ -168,7 +168,7 @@ p {
     border-bottom: 1px solid #f0801a;
 }
 
-.detail-ico-col {
+.detail-col {
     width: 50%;
 }
 
@@ -181,7 +181,7 @@ p {
 }
 
 .button-selected {
-    border-bottom: 12px solid #f0801a;
+    border-bottom: 4px solid #f0801a;
     font-weight: 700;
     background-color: rgba(240, 128, 26, .25);
 }
@@ -196,19 +196,18 @@ p {
     padding-bottom: 2.5vh;
 }
 
-.ico-text {
+.detail-text {
     padding-left: 1vw;
     max-width: 20vw;
-    background-color:  rgba(255, 255, 255, .125);
 }
 
-.ico-text p {
+.detail-text p {
     font-size: 1.25rem;
 }
 
 .ico {
     background-color: rgba(255, 255, 255, .125);
-    height: 5vh;
+    height: 2.5vw;
     width: 2.5vw;
 }
 
