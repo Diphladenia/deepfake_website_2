@@ -133,7 +133,27 @@ p {
 
 .video-container {
     height: 100%;
-    background-color: rgba(255, 255, 255, .125);
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.video-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-adapt {
+    width:100%;
+}
+
+.image-adapt {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
 }
 
 .space-between {
@@ -243,3 +263,4 @@ a:visited {
 a:hover {
     color: white;
 }
+
