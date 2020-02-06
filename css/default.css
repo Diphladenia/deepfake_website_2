@@ -22,4 +22,17 @@
     .page {
         font-size: 5rem;
     }
+
+    a {
+        color: #f0801a;
+    }
+
+    a:visited {
+        color: #f0801a;
+    }
+
+    a:hover {
+        color: white;
+    }
+
   }

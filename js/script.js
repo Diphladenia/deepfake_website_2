@@ -15,18 +15,12 @@ $(viewportClass).each(function (i, obj) {
     $($(this).find(".button")).each(function (j, obj) {
         var btnId = $(this).attr("id");
         $(this).attr("id", id + "-" + btnId);
-
-        // console.log("ID " + j + ": " + btnId + id);
     });
 
     $($(this).find(".tab")).each(function (j, obj) {
         var btnId = $(this).attr("id");
         $(this).attr("id", id + "-" + btnId);
-
-        // console.log("ID " + j + ": " + btnId + id);
     });
-    
-    //$(this).find(".button").attr("id", id);
 });
 
 var currentViewportPos = 0;

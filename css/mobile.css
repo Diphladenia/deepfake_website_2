@@ -1,5 +1,11 @@
 @media (max-width: 768px) {
+
+    .left-navbar {
+        display: none;
+    }
+
     .viewport {
+        padding: 0px;
         flex-wrap: wrap;
     }
 
