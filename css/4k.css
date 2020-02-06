@@ -1,0 +1,42 @@
+@media (min-width: 2950px) {
+
+    .viewport {
+        padding: 100px 0px 0px 100px;
+    }
+
+    .top-navbar {
+        height: 100px;
+    }
+
+    .left-navbar {
+        width: 100px;
+    }
+
+    h1, .main {
+        font-size: 45rem;
+    }
+    
+    h2 {
+        font-size: 14rem;
+    }
+
+    h3, .subtitle {
+        font-size: 7rem;
+    }
+
+    p {
+        font-size: 3rem;
+    }
+
+    .text {
+        font-size: 3rem;
+    }
+
+    .page {
+        font-size: 5rem;
+    }
+
+    .ico-text p {
+        font-size: 2.5rem;
+    }
+}
