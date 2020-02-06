@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+    .viewport {
+        flex-wrap: wrap;
+    }
+
+    .content-row {
+        flex-wrap: wrap;
+        height: 50%;
+        width: 100%;
+        background-color: rebeccapurple;
+    }
+
+    .video-col, .content-col {
+        width: 100%;
+    }
+}
