@@ -768,7 +768,7 @@
         </div>
         <div class="image-container">
           <div class="image">
-            <div class="img-05_Arthur  image-adapt">
+            <div class="img-07_Andrej  image-adapt">
             </div>
           </div>
           <div class="image-desc">
@@ -786,18 +786,17 @@
 
       <div class="content-col title-col top-sx">
         <div class="title">
-          <h2>05. Facebook</h2>
+          <h2>07. Good Example</h2>
         </div>
         <div class="subtitle top-space-5 left-space-5 right-space-5">
-          <h3>So how susceptible are you? Can we steal your social
-            media content and create a good deepfake?
+          <h3>Sometimes the two just melt together, in the following video the
+            target video even imitates his new face.
           </h3>
         </div>
         <div class="text orange top-space-2_5 left-space-5 right-space-5">
-          We took all the Facebook images from one of our team members
-          and created a deepfake. She smiled in almost all of the source
-          images, as a result, the algorithm could not generate
-          nonsmiling output.
+        This deepfake video was made out of a talk show fragment where Bill Hader
+        impersonates Arnold Schwarzenegger. By using the right source material
+        for Arnold Schwarzenegger, the results came out very convincing.
         </div>
       </div>
 
@@ -805,7 +804,7 @@
         <div class="video-container">
           <div class="video-player">
             <video class="video-adapt" autoplay loop muted controls class="scale-2">
-              <source src="res/vid/05_Pipi_Padme.mp4" type="video/mp4">
+              <source src="res/vid/07_Bill_Hader.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -819,20 +818,20 @@
       <div class="content-col title-col bottom-sx top-space-5 space-between">
         <div class="image-container left-space-5">
           <div class="image">
-            <div class="img-06_Natalie  image-adapt">
+            <div class="img-08_Bill_hader image-adapt">
             </div>
           </div>
           <div class="image-desc">
-            <p>Natalie Portman</p>
+            <p>Bill Hader</p>
           </div>
         </div>
         <div class="image-container">
           <div class="image">
-            <div class="img-pipi-fb  image-adapt">
+            <div class="img-08_Arnold  image-adapt">
             </div>
           </div>
           <div class="image-desc">
-            <p>Pilar Suarez</p>
+            <p>Arnold Schwarzenegger</p>
           </div>
         </div>
       </div>
@@ -904,23 +903,17 @@
             <div class="tab" id="tech" style="display: none;">
               <div class="detail-col left-space-2_5 top-space-2_5">
                 <div class="detail-text">
-                  <p> A video contains much more facial nuances
-                    compared to the images we took from Facebook.
-                    Our team member presented herself on the
-                    internet according to self-selected images,
-                    leaving out all the content needed to create
-                    realistic facial expressions for speech.
-                    Although better technologies might be able to
-                    fabricate expressions, without diverse source
-                    material, it will never convince an acquaintance.
+                  <p> The face blending, skin tone, and resolution are very good.
+                    The distant shot makes it difficult to see any blur.
+                    Probably the post-production was well executed. Only
+                    when Bill Hader moves his finger in front of his face,
+                    it disappears behind the mask. The difference in
+                    sharpness and the angle of the finger suggest that
+                    the creator has tried to hide the effect in post-production.
                   </p>
                 </div>
               </div>
-              <div class="detail-col left-space-2_5 top-space-2_5">
 
-                <img src="/res/svg/graph-pipi-natalie.svg">
-
-              </div>
             </div>
           </div>
         </div>
@@ -936,25 +929,24 @@
         <div class="video-container">
           <div class="video-player">
             <video class="video-adapt" autoplay loop muted controls class="scale-2">
-              <source src="res/vid/04_Sherlock Arthur.mp4" type="video/mp4">
+              <source src="res/vid/08_Yueling Constance Wu.mp4" type="video/mp4">
             </video>
           </div>
         </div>
       </div>
       <div class="content-col title-col top-dx">
         <div class="title">
-          <h2>04. Training data</h2>
+          <h2>08. Time Matters</h2>
         </div>
         <div class="subtitle top-space-5 left-space-5 right-space-5">
-          <h3>What happens if we provide the program with more content?
-            Will it be better?
+          <h3>What happens if we allow the algorithm to practice more on the
+            source content. Will the results improve?
           </h3>
         </div>
         <div class="text orange top-space-2_5 left-space-5 right-space-5">
-          In this experiment, two programs were given a different
-          number of images. More source material clearly improves the
-          output. The model had more information on the face and could
-          develop a better result.
+        For this experiment, both models were trained for a different amount of
+        time. One model was trained for 4 hours whilst the other ran for 48 hours.
+        The facial detail improved, and the face is more three dimensional.
         </div>
       </div>
 
@@ -1028,15 +1020,14 @@
             <div class="tab" id="tech" style="display: none;">
               <div class="detail-col left-space-2_5 top-space-2_5">
                 <div class="detail-text">
-                  <p> This experiment was executed with the same
-                    source video exported at a different framerate,
-                    hence both models were trained with the exact
-                    same studio setup. The amount of training
-                    cycles per image is equal but the training
-                    time increased due to a bigger dataset. It
-                    is clearly visible that the algorithm trained
-                    with more images can produce a more refined
-                    expression matching the target.
+                  <p> Training time is related to the number of iterations the
+                    algorithm performs. The model iterates between creating a
+                    face, applying recognition to compare with the source,
+                    and adjusting the parameters of the system to improve.
+                    Every iteration, the model does this cycle once for all
+                    source images. Depending on the power of the computer the
+                    iterations can be executed in less time.
+
                   </p>
                 </div>
               </div>
@@ -1052,20 +1043,20 @@
       <div class="content-col title-col bottom-dx top-space-5 space-between">
         <div class="image-container left-space-5">
           <div class="image">
-            <div class="img-05_Sherlock image-adapt">
+            <div class="img-09_Constance image-adapt">
             </div>
           </div>
           <div class="image-desc">
-            <p>Benedict Cumberbatch</p>
+            <p>Constance Wu</p>
           </div>
         </div>
         <div class="image-container">
           <div class="image">
-            <div class="img-05_Arthur  image-adapt">
+            <div class="img-09_Yueling  image-adapt">
             </div>
           </div>
           <div class="image-desc">
-            <p>Arthur van der Werf</p>
+            <p>Yueling Wu</p>
           </div>
         </div>
       </div>
