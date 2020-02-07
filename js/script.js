@@ -241,31 +241,44 @@ document.addEventListener('touchend', handleTouchEnd, false);
 
 var xDown = null;
 var yDown = null;
-function handleTouchStart(evt) {
-    currentViewportPos = checkVisibility();
-    xDown = evt.touches[0].clientX;
-    yDown = evt.touches[0].clientY;
-};
+var scrollPos = 0;
 
 var initialY = 0;
 var currentY = 0;
 var distance = 0;
 
+var timeTouchStart = 0;
+var timeTouchEnd = 0;
+
+function handleTouchStart(evt) {
+    currentViewportPos = checkVisibility();
+    timeTouchStart = Date.now();
+    xDown = evt.touches[0].clientX;
+    yDown = evt.touches[0].clientY;
+    scrollPos = document.documentElement.scrollTop;
+    initialY = 0;
+    currentY = 0;
+    distance = 0;
+    console.log("------->>>>>>")
+};
+
+
+
 function handleTouchMove(evt) {
 
-
-    var scrollPos = document.documentElement.scrollTop;
-    console.log(scrollPos);
+    console.log(distance + "; " + scrollPos);
     
     distance = initialY - currentY;
     currentY = evt.touches[0].clientY;
-    window.scrollTo(0, scrollPos + (distance * .05));
+    window.scrollTo(0, scrollPos + distance);
 
     if (!xDown || !yDown) {
         return;
     } //nessun movimento
 
+
     initialY = evt.touches[0].clientY;
+    //scrollPos = document.documentElement.scrollTop;
 
     var xUp = evt.touches[0].clientX;
     var yUp = evt.touches[0].clientY;
@@ -285,7 +298,7 @@ function handleTouchMove(evt) {
             console.log("Swipe dx");
         }//right
     } else {
-        if (distance > 200 || distance < -200) {
+        if (distance > 0 || distance < 0) {
             if (yDiff > 0) {
                 /* swipe alto */
                 console.log("Swipe UP");
@@ -315,5 +328,29 @@ function handleTouchMove(evt) {
 };
 
 function handleTouchEnd(evt) {
-    viewport.target = "#" + viewportList[currentViewportPos]
+
+    timeTouchEnd = Date.now();
+
+    var velocityThreshold = 0.2;
+    var velocity = distance / (timeTouchEnd - timeTouchStart);
+
+    console.log(">>>>>>>>>>>>>>>>: " + velocity);
+
+
+    var scrollThreshold = .25;
+
+    var normalizedDist = distance / window.innerHeight;
+
+    if ((normalizedDist > scrollThreshold) || (velocity > velocityThreshold)) {
+        if (currentViewportPos < viewportList.length - 1) {
+            currentViewportPos++;
+        }
+    }
+
+    if ((normalizedDist < -(scrollThreshold)) || (velocity < -velocityThreshold)) {
+        if (currentViewportPos > 0) {
+            currentViewportPos--;
+        }    }
+
+    viewport.target = "#" + viewportList[currentViewportPos];
 }
