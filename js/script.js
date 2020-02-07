@@ -264,7 +264,7 @@ function handleTouchMove(evt) {
                 currentViewportPos++;
             }
             
-            viewport.target = viewportList[currentViewportPos]
+            viewport.target = "#" + viewportList[currentViewportPos]
             //scroll_to(_sections[currentSection]);
         } else {
             /* swipe basso */
@@ -273,25 +273,13 @@ function handleTouchMove(evt) {
                 currentViewportPos--;
             }
             
-            viewport.target = viewportList[currentViewportPos];
+            viewport.target = "#" + viewportList[currentViewportPos];
             //scroll_to(_sections[currentSection]);
         }
-        console.log("TOUCH: " + viewportList[currentViewportPos]);
+
         
     }
-
-
     /* reset values */
     xDown = null;
     yDown = null;
 };
-
-function disableScroll() {
-    if (window.addEventListener) // older FF
-        window.addEventListener('DOMMouseScroll', preventDefault, false);
-    document.addEventListener('wheel', preventDefault, { passive: false }); // Disable scrolling in Chrome
-    window.onwheel = preventDefault; // modern standard
-    window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
-    window.ontouchmove = preventDefault; // mobile
-    document.onkeydown = preventDefaultForScrollKeys;
-}

@@ -1,3 +1,7 @@
+html, body {
+    touch-action: none;
+}
+
 html, body, div, h1, h2, h3, p, a {
     font-size: 1vw;
     margin: 0px;
@@ -267,7 +271,6 @@ p {
 }
 
 .ico {
-    background-color: rgba(255, 255, 255, .125);
     height: 2.5vw;
     width: 2.5vw;
 }
