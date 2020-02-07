@@ -61,6 +61,7 @@ $(window).scroll(function () {
 
 function checkVisibility() {
     var currentVisibility = 0;
+    var tmp = 0;
 
     $(viewportClass).each(function (i, obj) {
         var tmp = elementVisibility(viewportClass, "#" + viewportList[i]);
@@ -68,7 +69,8 @@ function checkVisibility() {
         if (currentVisibility < tmp) {
             currentVisibility = tmp;
             currentViewport = viewportList[i];
-            currentViewportPos = i;
+            //currentViewportPos = i;
+            temp = i;
         }
     });
 
@@ -79,6 +81,7 @@ function checkVisibility() {
     }
 
     mostVisiblePrec = currentViewport;
+    return temp;
 }
 
 //
@@ -234,9 +237,12 @@ $(".button").click(function() {
 // TOUCH HANDLER
 document.addEventListener('touchstart', handleTouchStart, false); //bind & fire - evento di inizio tocco
 document.addEventListener('touchmove', handleTouchMove, false); // bind & fire - evento di movimento durante il tocco
+document.addEventListener('touchend', handleTouchEnd, false);
+
 var xDown = null;
 var yDown = null;
 function handleTouchStart(evt) {
+    currentViewportPos = checkVisibility();
     xDown = evt.touches[0].clientX;
     yDown = evt.touches[0].clientY;
 };
@@ -253,7 +259,7 @@ function handleTouchMove(evt) {
     
     distance = initialY - currentY;
     currentY = evt.touches[0].clientY;
-    window.scrollTo(0, 10000 + distance);
+    window.scrollTo(0, scrollPos + (distance * .05));
 
     if (!xDown || !yDown) {
         return;
@@ -264,14 +270,8 @@ function handleTouchMove(evt) {
     var xUp = evt.touches[0].clientX;
     var yUp = evt.touches[0].clientY;
     
-
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
-
-    var doc = document.documentElement;
-    var left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
-    var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-
 
     //window.scrollTo(top, left);
 
@@ -285,29 +285,35 @@ function handleTouchMove(evt) {
             console.log("Swipe dx");
         }//right
     } else {
-        if (yDiff > 0) {
-            /* swipe alto */
-            console.log("Swipe UP");
-            if (currentViewportPos < viewportList.length - 1) {
-                currentViewportPos++;
+        if (distance > 200 || distance < -200) {
+            if (yDiff > 0) {
+                /* swipe alto */
+                console.log("Swipe UP");
+                if (currentViewportPos < viewportList.length - 1) {
+                    currentViewportPos++;
+                }
+                
+                
+                //scroll_to(_sections[currentSection]);
+            } else {
+                /* swipe basso */
+                console.log("Swipe DOWN");
+                if (currentViewportPos > 0) {
+                    currentViewportPos--;
+                }
+                
+      
+                //scroll_to(_sections[currentSection]);
             }
-            
-            //viewport.target = "#" + viewportList[currentViewportPos]
-            //scroll_to(_sections[currentSection]);
-        } else {
-            /* swipe basso */
-            console.log("Swipe DOWN");
-            if (currentViewportPos > 0) {
-                currentViewportPos--;
-            }
-            
-            //viewport.target = "#" + viewportList[currentViewportPos];
-            //scroll_to(_sections[currentSection]);
-        }
-
-        
+        }        
     }
+
+    
     /* reset values */
     xDown = null;
     yDown = null;
 };
+
+function handleTouchEnd(evt) {
+    viewport.target = "#" + viewportList[currentViewportPos]
+}
