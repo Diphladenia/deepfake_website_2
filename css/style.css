@@ -1,5 +1,5 @@
 html, body, div, h1, h2, h3, p, a {
-    font-size: 12px;
+    font-size: 1vw;
     margin: 0px;
     padding: 0px;
     font-family: 'Raleway', sans-serif;
@@ -11,16 +11,30 @@ h1, h2 {
     font-weight: 700;
 }
 
+h1 {
+    font-size: 15rem;
+}
+
+h2 {
+    font-size: 5rem;
+}
+
 h3 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
+    font-size: 2rem;
 }
 
 p {
-    font-size: 1.5rem;
+   
+}
+
+.detail-text p {
+    font-size: .8rem;
 }
 
 .top-navbar {
+    
     position: fixed;
     background-color: #202020;
     width: 100%;
@@ -34,7 +48,7 @@ p {
 
 .top-navbar a {
     padding: 0px 1vw;
-    font-size: 1.5rem;
+    font-size: 16px;
     line-height: 50px;
 }
 
@@ -149,11 +163,26 @@ p {
     width:100%;
 }
 
+.rescale {
+    width: 75vw;
+    height: auto;
+}
+
 .image-adapt {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     height: 100%;
+}
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;    
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .space-between {
@@ -169,7 +198,6 @@ p {
 }
 
 .main {
-    font-size: 15em;
 }
 
 .image-container {
@@ -235,7 +263,7 @@ p {
 }
 
 .detail-text p {
-    font-size: 1.25rem;
+   
 }
 
 .ico {
@@ -245,7 +273,6 @@ p {
 }
 
 .page {
-    font-size: 5em;
 }
 
 .orange {

@@ -75,7 +75,7 @@ function checkVisibility() {
     console.log(currentViewport + " is visible!");
 
     if  (currentViewport !== mostVisiblePrec) {
-        viewport.target = ("#" + currentViewport);
+        //viewport.target = ("#" + currentViewport);
     }
 
     mostVisiblePrec = currentViewport;
@@ -123,7 +123,7 @@ function scrollTo(id) {
 
     }
 
-    console.log("scrolling");
+    console.log("Scrolling to: " + id);
     //page.stop();    
     $('html,body').animate({
         scrollTop: $(id).offset().top
@@ -229,3 +229,69 @@ $(".button").click(function() {
     }
 
 })
+
+
+// TOUCH HANDLER
+document.addEventListener('touchstart', handleTouchStart, false); //bind & fire - evento di inizio tocco
+document.addEventListener('touchmove', handleTouchMove, false); // bind & fire - evento di movimento durante il tocco
+var xDown = null;
+var yDown = null;
+function handleTouchStart(evt) {
+    xDown = evt.touches[0].clientX;
+    yDown = evt.touches[0].clientY;
+};
+function handleTouchMove(evt) {
+    if (!xDown || !yDown) {
+        return;
+    } //nessun movimento
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {/*Trovo quello più significativo sulle assi X e Y*/
+        if (xDiff > 0) {
+            /* swipe sinistra */
+            console.log("Swipe sx");
+        } else {
+            /* swipe destra */
+            console.log("Swipe dx");
+        }//right
+    } else {
+        if (yDiff > 0) {
+            /* swipe alto */
+            console.log("Swipe UP");
+            if (currentViewportPos < viewportList.length - 1) {
+                currentViewportPos++;
+            }
+            
+            viewport.target = viewportList[currentViewportPos]
+            //scroll_to(_sections[currentSection]);
+        } else {
+            /* swipe basso */
+            console.log("Swipe DOWN");
+            if (currentViewportPos > 0) {
+                currentViewportPos--;
+            }
+            
+            viewport.target = viewportList[currentViewportPos];
+            //scroll_to(_sections[currentSection]);
+        }
+        console.log("TOUCH: " + viewportList[currentViewportPos]);
+        
+    }
+
+
+    /* reset values */
+    xDown = null;
+    yDown = null;
+};
+
+function disableScroll() {
+    if (window.addEventListener) // older FF
+        window.addEventListener('DOMMouseScroll', preventDefault, false);
+    document.addEventListener('wheel', preventDefault, { passive: false }); // Disable scrolling in Chrome
+    window.onwheel = preventDefault; // modern standard
+    window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+    window.ontouchmove = preventDefault; // mobile
+    document.onkeydown = preventDefaultForScrollKeys;
+}
