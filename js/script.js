@@ -44,7 +44,7 @@ viewport = {
 }
 
 viewport.registerListener(function(val) {
-    scrollTo(val);
+    scroll_To(val);
     console.log("New target: " + val);
 });
 
@@ -117,7 +117,7 @@ function elementVisibility(elementClass, elementId) {
 
 var page = $("html, body");
 
-function scrollTo(id) {
+function scroll_To(id) {
 
     if (currentViewport !== targetViewport) {
 
@@ -240,14 +240,42 @@ function handleTouchStart(evt) {
     xDown = evt.touches[0].clientX;
     yDown = evt.touches[0].clientY;
 };
+
+var initialY = 0;
+var currentY = 0;
+var distance = 0;
+
 function handleTouchMove(evt) {
+
+
+    var scrollPos = document.documentElement.scrollTop;
+    console.log(scrollPos);
+    
+    distance = initialY - currentY;
+    currentY = evt.touches[0].clientY;
+    window.scrollTo(0, 10000 + distance);
+
     if (!xDown || !yDown) {
         return;
     } //nessun movimento
+
+    initialY = evt.touches[0].clientY;
+
     var xUp = evt.touches[0].clientX;
     var yUp = evt.touches[0].clientY;
+    
+
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
+
+    var doc = document.documentElement;
+    var left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+    var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+
+
+    //window.scrollTo(top, left);
+
+
     if (Math.abs(xDiff) > Math.abs(yDiff)) {/*Trovo quello più significativo sulle assi X e Y*/
         if (xDiff > 0) {
             /* swipe sinistra */
@@ -264,7 +292,7 @@ function handleTouchMove(evt) {
                 currentViewportPos++;
             }
             
-            viewport.target = "#" + viewportList[currentViewportPos]
+            //viewport.target = "#" + viewportList[currentViewportPos]
             //scroll_to(_sections[currentSection]);
         } else {
             /* swipe basso */
@@ -273,7 +301,7 @@ function handleTouchMove(evt) {
                 currentViewportPos--;
             }
             
-            viewport.target = "#" + viewportList[currentViewportPos];
+            //viewport.target = "#" + viewportList[currentViewportPos];
             //scroll_to(_sections[currentSection]);
         }
 

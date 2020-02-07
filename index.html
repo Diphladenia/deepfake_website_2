@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- link to fonts -->
     <link
-        href="https://fonts.googleapis.com/css?family=Oswald:700|Playfair+Display:700|Raleway:300,400,700&display=swap" rel="stylesheet">
+        href="https://fonts.googleapis.com/css?family=Oswald:700|Playfair+Display:700|Raleway:300,400,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -221,11 +222,11 @@
             <div class="content-col video-col bottom-dx">
                 <div class="details">
                     <div class="detail-row border-bottom">
- 
+
                         <div class="button button-selected" id="tech">
                             <p>Technical details</p>
                         </div>
-                        <div class="button" id="visual" >
+                        <div class="button" id="visual">
                             <p>Visual flaws</p>
                         </div>
                     </div>
@@ -259,48 +260,48 @@
                                         </p>
                                     </div>
                                 </div>
-                              </div>
-
-
-                                                            <!-- DX ICON COL -->
-                                                            <div class="detail-col left-space-2_5 top-space-2_5">
-                                                              <div class="icon-group">
-                                                                  <div class="ico">
-                                                                      <img class="ico" src="/res/ico/edges.svg">
-                                                                  </div>
-                                                                  <div class="detail-text">
-                                                                      <p><strong>Visible edges:</strong>
-                                                                          <br>The edges of the mask are visible. This can either be
-                                                                          as a sharp, or blurred edge surrounding the face.</br>
-                                                                      </p>
-                                                                  </div>
-                                                              </div>
-                                                            </div>
-
-
-                        
                             </div>
-                        </div>
-                        <div class="tab" id="tech">
+
+
+                            <!-- DX ICON COL -->
                             <div class="detail-col left-space-2_5 top-space-2_5">
-                                <div class="detail-text">
-                                    <p> The images used to train the algorithm did not contain the right
-                                        facial expressions to cover Shia, nor did they contain footage of a
-                                        facial profile. If the neural network is not trained for these situations,
-                                        it cannot produce the right overlay. Pay attention to how Shia's mouth
-                                        appears from underneath the mask, resulting in two mouths.</p>
+                                <div class="icon-group">
+                                    <div class="ico">
+                                        <img class="ico" src="/res/ico/edges.svg">
+                                    </div>
+                                    <div class="detail-text">
+                                        <p><strong>Visible edges:</strong>
+                                            <br>The edges of the mask are visible. This can either be
+                                            as a sharp, or blurred edge surrounding the face.</br>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="detail-col left-space-2_5 top-space-2_5">
 
-                                <img src="/res/svg/graph-pipi-shia.svg">
 
+
+                        </div>
+                    </div>
+                    <div class="tab" id="tech">
+                        <div class="detail-col left-space-2_5 top-space-2_5">
+                            <div class="detail-text">
+                                <p> The images used to train the algorithm did not contain the right
+                                    facial expressions to cover Shia, nor did they contain footage of a
+                                    facial profile. If the neural network is not trained for these situations,
+                                    it cannot produce the right overlay. Pay attention to how Shia's mouth
+                                    appears from underneath the mask, resulting in two mouths.</p>
                             </div>
+                        </div>
+                        <div class="detail-col left-space-2_5 top-space-2_5">
+
+                            <img src="/res/svg/graph-pipi-shia.svg">
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- PAGE 5 -->
@@ -459,7 +460,7 @@
             <div class="content-col video-col bottom-dx">
                 <div class="details">
                     <div class="detail-row border-bottom">
- 
+
                         <div class="button button-selected" id="tech">
                             <p>Technical details</p>
                         </div>
@@ -468,7 +469,7 @@
                         </div>
                     </div>
                     <div class="detail-row">
-                        <div class="tab" id="visual"  style="display: none;">
+                        <div class="tab" id="visual" style="display: none;">
 
                             <!-- SX ICON COL -->
                             <div class="detail-col left-space-2_5 top-space-2_5">
@@ -1010,29 +1011,29 @@
                     </div>
                     <div class="detail-row">
                         <div class="tab" id="visual" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="tab" id="tech">
+                        <div class="detail-col left-space-2_5 top-space-2_5">
+                            <div class="detail-text">
+                                <p> H128 is the lighter model of the two. It reaches quality
+                                    in less time. The more precise mask of SAEHD deals better
+                                    with the occluding finger and it blends in better with the
+                                    lighting. H128 seems to be better trained to make the face.
+                                    The mask is sharper, more stable, and performs better with
+                                    movement and perspective changes. However, fora inform that
+                                    with more training time, SAEHD will outperform H128.
+                                </p>
                             </div>
                         </div>
-                        <div class="tab" id="tech">
-                            <div class="detail-col left-space-2_5 top-space-2_5">
-                                <div class="detail-text">
-                                    <p> H128 is the lighter model of the two. It reaches quality
-                                        in less time. The more precise mask of SAEHD deals better
-                                        with the occluding finger and it blends in better with the
-                                        lighting. H128 seems to be better trained to make the face.
-                                        The mask is sharper, more stable, and performs better with
-                                        movement and perspective changes. However, fora inform that
-                                        with more training time, SAEHD will outperform H128.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="detail-col left-space-2_5 top-space-2_5">
-                                <img src="/res/svg/graph-andrej- arthur.svg">
-                            </div>
+                        <div class="detail-col left-space-2_5 top-space-2_5">
+                            <img src="/res/svg/graph-andrej- arthur.svg">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- PAGE 10 -->
