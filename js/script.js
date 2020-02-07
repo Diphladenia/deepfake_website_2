@@ -305,23 +305,16 @@ function handleTouchMove(evt) {
                 if (currentViewportPos < viewportList.length - 1) {
                     currentViewportPos++;
                 }
-                
-                
-                //scroll_to(_sections[currentSection]);
             } else {
                 /* swipe basso */
                 console.log("Swipe DOWN");
                 if (currentViewportPos > 0) {
                     currentViewportPos--;
                 }
-                
-      
-                //scroll_to(_sections[currentSection]);
             }
         }        
     }
 
-    
     /* reset values */
     xDown = null;
     yDown = null;
@@ -331,13 +324,11 @@ function handleTouchEnd(evt) {
 
     timeTouchEnd = Date.now();
 
+    var scrollThreshold = .25;
     var velocityThreshold = 0.2;
     var velocity = distance / (timeTouchEnd - timeTouchStart);
 
-    console.log(">>>>>>>>>>>>>>>>: " + velocity);
-
-
-    var scrollThreshold = .25;
+    console.log("Touch scroll speed: " + velocity);
 
     var normalizedDist = distance / window.innerHeight;
 
