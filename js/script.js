@@ -220,7 +220,7 @@ $(".button").click(function() {
             $(".button#" + viewportList[i] + "-visual").removeClass("button-selected");
             $(".tab#" + viewportList[i] + "-tech").show();
             $(".tab#" + viewportList[i] + "-visual").hide();
-        } else {
+        } else if ($(this).attr("id") === viewportList[i] + "-visual"){
             $(this).addClass("button-selected");
             $(".button#" + viewportList[i] + "-tech").removeClass("button-selected");
             $(".tab#" + viewportList[i] + "-tech").hide();
