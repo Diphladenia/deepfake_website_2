@@ -24,9 +24,7 @@ $(viewportClass).each(function (i, obj) {
 });
 
 var currentViewportPos = 0;
-
 var currentViewport = viewportList[0];
-var targetViewport = viewportList[0];
 
 viewport = {
     targetInternal: viewportList[0],
@@ -48,40 +46,41 @@ viewport.registerListener(function(val) {
     console.log("New target: " + val);
 });
 
+viewport.target = "#" + viewportList[getCurrentViewportPos()];
+currentViewportPos = getCurrentViewportPos();
+scroll_To("#" + viewportList[getCurrentViewportPos()]);
+
+
+
 //
 // On scroll update
 //
-checkVisibility();
 
 $(window).scroll(function () {
 
-    checkVisibility();
+    getCurrentViewportPos();
 
 });
 
-function checkVisibility() {
-    var currentVisibility = 0;
-    var tmp = 0;
+function getCurrentViewportPos() {
+    var currentElement = 0;
+    var currentElementPos = 0;
 
     $(viewportClass).each(function (i, obj) {
-        var tmp = elementVisibility(viewportClass, "#" + viewportList[i]);
+        var element = elementVisibility(viewportClass, "#" + viewportList[i]);
 
-        if (currentVisibility < tmp) {
-            currentVisibility = tmp;
+        if (currentElement < element) {
+            currentElement = element;
             currentViewport = viewportList[i];
             //currentViewportPos = i;
-            temp = i;
+            currentElementPos = i;
         }
     });
 
     console.log(currentViewport + " is visible!");
 
-    if  (currentViewport !== mostVisiblePrec) {
-        //viewport.target = ("#" + currentViewport);
-    }
-
     mostVisiblePrec = currentViewport;
-    return temp;
+    return currentElementPos;
 }
 
 //
@@ -121,10 +120,6 @@ function elementVisibility(elementClass, elementId) {
 var page = $("html, body");
 
 function scroll_To(id) {
-
-    if (currentViewport !== targetViewport) {
-
-    }
 
     console.log("Scrolling to: " + id);
     //page.stop();    
@@ -251,7 +246,7 @@ var timeTouchStart = 0;
 var timeTouchEnd = 0;
 
 function handleTouchStart(evt) {
-    currentViewportPos = checkVisibility();
+    currentViewportPos = getCurrentViewportPos();
     timeTouchStart = Date.now();
     xDown = evt.touches[0].clientX;
     yDown = evt.touches[0].clientY;

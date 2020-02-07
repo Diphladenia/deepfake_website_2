@@ -1,0 +1,16 @@
+body {
+    color: black;
+    background-color: white;
+}
+
+a:hover {
+    color: black;
+}
+
+.top-navbar {
+    background-color: #f6f6f6;
+}  
+
+.top-navbar a:hover {
+    background-color: rgba(0, 0, 0, .05);
+}

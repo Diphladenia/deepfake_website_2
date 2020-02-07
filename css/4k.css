@@ -26,5 +26,7 @@
         height: 100px;
     }
 
-    
+    .navbar-adjustment {
+        padding: 100px 0px 0px 100px;
+    }
 }
