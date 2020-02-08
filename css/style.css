@@ -29,21 +29,35 @@ h3 {
     font-size: 2rem;
 }
 
+p {
+    font-size: 1rem;
+}  
+
+.detail-text p {
+    font-size: .75rem;
+}
+
+.last-page{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: auto;
+}
+
 footer {
     width: 100%;
     height: auto;
+    padding-top: 1.5rem;
     align-self: flex-end;
+    background-color: #202020;
 }
 
 .disable-touch {
     touch-action: none;
 }
 
-.detail-text p {
-    font-size: .75rem;
-}
-
 .top-navbar {
+    z-index: 9999;
     position: fixed;
     background-color: #202020;
     width: 100%;
@@ -203,14 +217,21 @@ footer {
     justify-content: space-between;
 }
 
-.title {
+
+.main {
+    display: block;
+}
+
+.title, title.h1 {
     text-transform: uppercase;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-color: #f0801a;
     -webkit-text-stroke-width: 2px;
 }
 
-.main {}
+.subtitle, .subtitle h3 {
+    font-size: 3rem;
+}
 
 .image-container {
     height: 100%;
@@ -274,11 +295,13 @@ footer {
     max-width: 20vw;
 }
 
-.detail-text p {}
-
 .ico {
     height: 2.5vw;
     width: 2.5vw;
+}
+
+.img-responsive {
+    width: 100%;
 }
 
 .logo {
@@ -325,6 +348,9 @@ svg {
 .space-sm-1 {
     padding-bottom: 1rem;
 }
+.space-sm-2 {
+    padding-bottom: 2rem;
+}
 .space-sm-3 {
     padding-bottom: 3rem;
 }
@@ -333,4 +359,8 @@ svg {
 }
 .space-sm-6 {
     padding-bottom: 6rem;
+}
+
+.col-sm-count-1 {
+    column-count: 1;
 }

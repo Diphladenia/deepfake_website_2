@@ -12,13 +12,11 @@
     <link
         href="https://fonts.googleapis.com/css?family=Oswald:700|Playfair+Display:700|Raleway:300,400,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.6.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/mobile.css">
-    <link rel="stylesheet" type="text/css" href="css/default.css">
-    <link rel="stylesheet" type="text/css" href="css/4k.css">
+    <link rel="stylesheet" type="text/css" href="css/screen-sm.css">
+    <link rel="stylesheet" type="text/css" href="css/screen-md.css">
+    <link rel="stylesheet" type="text/css" href="css/screen.lg.css">
     <link rel="stylesheet" type="text/css" href="css/img-urls.css">
 </head>
 
@@ -35,8 +33,13 @@
 
     <!-- PAGE 1 -->
     <div class="viewport">
-        <div class="title main">
-            <h1>Deepfake<br>Lab</h1>
+        <div class="main">
+            <div class="title">
+                <h1>Deepfake<br>Lab</h1>
+            </div>
+            <div class="subtitle">
+                <h3>Unraveling the mystery around deepfakes.</h3>
+            </div>
         </div>
     </div>
 
@@ -73,15 +76,18 @@
                 <div class="title">
                     <h2>01. Tesla Baby</h2>
                 </div>
-                <div class="subtitle top-space-5 left-space-5 right-space-5">
+                <div class="top-space-5 left-space-5 right-space-5">
                     <h3>Let’s have a look at a popular example from the internet.
                     </h3>
                 </div>
-                <div class="text orange top-space-2_5 left-space-5 right-space-5">
-                    In this video Elon Musk’s face has been translated to a baby.
-                    This type of face swap is the most common use of deepfake
-                    technologies. The edges are not sharp and there is a difference
-                    in skin colour.
+                <div class="orange top-space-2_5 left-space-5 right-space-5">
+                    <p>
+                        In this video Elon Musk’s face has been translated to a baby.
+                        This type of face swap is the most common use of deepfake
+                        technologies. The edges are not sharp and there is a difference
+                        in skin colour.
+                    </p>
+
                 </div>
             </div>
 
@@ -172,15 +178,18 @@
                 <div class="title">
                     <h2>02. DIY</h2>
                 </div>
-                <div class="subtitle top-space-5 left-space-5 right-space-5">
+                <div class="top-space-5 left-space-5 right-space-5">
                     <h3>You can also try this at home.
                         We will show you what you need.
                     </h3>
                 </div>
-                <div class="text orange top-space-2_5 left-space-5 right-space-5">
-                    Deepfake videos can be made with consumer computers but you need
-                    quite a powerful graphical card. This video shows our first trial.
-                    It is very important to have the right source videos.
+                <div class="orange top-space-2_5 left-space-5 right-space-5">
+                    <p>
+                        Deepfake videos can be made with consumer computers but you need
+                        quite a powerful graphical card. This video shows our first trial.
+                        It is very important to have the right source videos.
+                    </p>
+
                 </div>
             </div>
 
@@ -326,16 +335,19 @@
                 <div class="title">
                     <h2>04. Training data</h2>
                 </div>
-                <div class="subtitle top-space-5 left-space-5 right-space-5">
+                <div class="top-space-5 left-space-5 right-space-5">
                     <h3>What happens if we provide the program with more content?
                         Will it be better?
                     </h3>
                 </div>
-                <div class="text orange top-space-2_5 left-space-5 right-space-5">
-                    In this experiment, two programs were given a different
-                    number of images. More source material clearly improves the
-                    output. The model had more information on the face and could
-                    develop a better result.
+                <div class="orange top-space-2_5 left-space-5 right-space-5">
+                    <p>
+                        In this experiment, two programs were given a different
+                        number of images. More source material clearly improves the
+                        output. The model had more information on the face and could
+                        develop a better result.
+                    </p>
+
                 </div>
             </div>
 
@@ -407,16 +419,18 @@
                 <div class="title">
                     <h2>05. Facebook</h2>
                 </div>
-                <div class="subtitle top-space-5 left-space-5 right-space-5">
+                <div class="top-space-5 left-space-5 right-space-5">
                     <h3>So how susceptible are you? Can we steal your social
                         media content and create a good deepfake?
                     </h3>
                 </div>
-                <div class="text orange top-space-2_5 left-space-5 right-space-5">
-                    We took all the Facebook images from one of our team members
-                    and created a deepfake. She smiled in almost all of the source
-                    images, as a result, the algorithm could not generate
-                    nonsmiling output.
+                <div class="orange top-space-2_5 left-space-5 right-space-5">
+                    <p>
+                        We took all the Facebook images from one of our team members
+                        and created a deepfake. She smiled in almost all of the source
+                        images, as a result, the algorithm could not generate
+                        nonsmiling output.
+                    </p>
                 </div>
             </div>
 
@@ -571,16 +585,18 @@
                 <div class="title">
                     <h2>06. Target Choice</h2>
                 </div>
-                <div class="subtitle top-space-5 left-space-5 right-space-5">
+                <div class="top-space-5 left-space-5 right-space-5">
                     <h3>We have just seen how the source is important to train the algorithm.
                         What about the target video?
 
                     </h3>
                 </div>
-                <div class="text orange top-space-2_5 left-space-5 right-space-5">
-                    Even with a good source, it can be hard to create a deepfake. Indiana
-                    Jones contains chaotic shots, compared to the cleaner videos we used
-                    before, the algorithm now has difficulty keeping up.
+                <div class="orange top-space-2_5 left-space-5 right-space-5">
+                    <p>
+                        Even with a good source, it can be hard to create a deepfake. Indiana
+                        Jones contains chaotic shots, compared to the cleaner videos we used
+                        before, the algorithm now has difficulty keeping up.
+                    </p>
                 </div>
             </div>
 
@@ -708,15 +724,17 @@
                 <div class="title">
                     <h2>07. Good Example</h2>
                 </div>
-                <div class="subtitle top-space-5 left-space-5 right-space-5">
+                <div class="top-space-5 left-space-5 right-space-5">
                     <h3>Sometimes the two just melt together, in the following video the
                         target video even imitates his new face.
                     </h3>
                 </div>
-                <div class="text orange top-space-2_5 left-space-5 right-space-5">
-                    This deepfake video was made out of a talk show fragment where Bill Hader
-                    impersonates Arnold Schwarzenegger. By using the right source material
-                    for Arnold Schwarzenegger, the results came out very convincing.
+                <div class="orange top-space-2_5 left-space-5 right-space-5">
+                    <p>
+                        This deepfake video was made out of a talk show fragment where Bill Hader
+                        impersonates Arnold Schwarzenegger. By using the right source material
+                        for Arnold Schwarzenegger, the results came out very convincing.
+                    </p>
                 </div>
             </div>
 
@@ -822,15 +840,17 @@
                 <div class="title">
                     <h2>08. Time Matters</h2>
                 </div>
-                <div class="subtitle top-space-5 left-space-5 right-space-5">
+                <div class="top-space-5 left-space-5 right-space-5">
                     <h3>What happens if we allow the algorithm to practice more on the
                         source content. Will the results improve?
                     </h3>
                 </div>
-                <div class="text orange top-space-2_5 left-space-5 right-space-5">
-                    For this experiment, both models were trained for a different amount of
-                    time. One model was trained for 4 hours whilst the other ran for 48 hours.
-                    The facial detail improved, and the face is more three dimensional.
+                <div class="orange top-space-2_5 left-space-5 right-space-5">
+                    <p>
+                        For this experiment, both models were trained for a different amount of
+                        time. One model was trained for 4 hours whilst the other ran for 48 hours.
+                        The facial detail improved, and the face is more three dimensional.
+                    </p>
                 </div>
             </div>
 
@@ -953,15 +973,17 @@
                 <div class="title">
                     <h2>09. Algorithms</h2>
                 </div>
-                <div class="subtitle top-space-5 left-space-5 right-space-5">
+                <div class="top-space-5 left-space-5 right-space-5">
                     <h3>One last experiment. How do different algorithms respond to
                         critical conditions?
                     </h3>
                 </div>
-                <div class="text orange top-space-2_5 left-space-5 right-space-5">
-                    For this experiment, we created both the source and the target video
-                    ourselves. The approach of the algorithm is clearly visible. H128
-                    creates a square mask whilst SAEHD matches the face better.
+                <div class="orange top-space-2_5 left-space-5 right-space-5">
+                    <p>
+                        For this experiment, we created both the source and the target video
+                        ourselves. The approach of the algorithm is clearly visible. H128
+                        creates a square mask whilst SAEHD matches the face better.
+                    </p>
                 </div>
             </div>
 
@@ -1052,17 +1074,19 @@
                 <div class="title">
                     <h2>10. Be Aware</h2>
                 </div>
-                <div class="subtitle top-space-5 left-space-5 right-space-5">
+                <div class="top-space-5 left-space-5 right-space-5">
                     <h3>Let's see what is really happening with deepfake videos.
 
                     </h3>
                 </div>
-                <div class="text orange top-space-2_5 left-space-5 right-space-5">
-                    Nowadays, deepfakes
-                    can reach a really high quality that is very difficult to recognize.
-                    Although we have solely focussed on face swaps, deepfakes can also
-                    re-enact a face to make it seem as if a person said something. Be
-                    aware of this technology and remember the signs we have showed you.
+                <div class="orange top-space-2_5 left-space-5 right-space-5">
+                    <p>
+                        Nowadays, deepfakes
+                        can reach a really high quality that is very difficult to recognize.
+                        Although we have solely focussed on face swaps, deepfakes can also
+                        re-enact a face to make it seem as if a person said something. Be
+                        aware of this technology and remember the signs we have showed you.
+                    </p>
                 </div>
             </div>
 
@@ -1108,7 +1132,16 @@
 
     <!-- PAGE 11 -->
     <!-- FOOTER -->
-    <div class="viewport">
+    <div class="viewport space-between">
+        <div class="last-page">
+            <div class="container-fluid">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h3>Here you can find a guide that summarizes the skills
+                        you acquired on this website so that you can check videos yourself.</h3>
+                </div>
+            </div>
+
+        </div>
         <footer class="container-fluid space-xs-3 space-sm-3">
             <div class="row">
                 <div class="col-xs-4 col-sm-1 col-sm-offset-1">
