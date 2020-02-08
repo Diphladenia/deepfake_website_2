@@ -58,7 +58,7 @@ scroll_To("#" + viewportList[getCurrentViewportPos()]);
 
 $(window).scroll(function () {
 
-    getCurrentViewportPos();
+    currentViewportPos = getCurrentViewportPos();
 
 });
 
@@ -245,26 +245,23 @@ var distance = 0;
 var timeTouchStart = 0;
 var timeTouchEnd = 0;
 
-function handleTouchStart(evt) {
+function handleTouchStart(event) {
     currentViewportPos = getCurrentViewportPos();
     timeTouchStart = Date.now();
-    xDown = evt.touches[0].clientX;
-    yDown = evt.touches[0].clientY;
+    xDown = event.touches[0].clientX;
+    yDown = event.touches[0].clientY;
     scrollPos = document.documentElement.scrollTop;
     initialY = 0;
     currentY = 0;
     distance = 0;
-    console.log("------->>>>>>")
 };
 
 
 
-function handleTouchMove(evt) {
-
-    console.log(distance + "; " + scrollPos);
-    
+function handleTouchMove(event) {
+ 
     distance = initialY - currentY;
-    currentY = evt.touches[0].clientY;
+    currentY = event.touches[0].clientY;
     window.scrollTo(0, scrollPos + distance);
 
     if (!xDown || !yDown) {
@@ -272,11 +269,11 @@ function handleTouchMove(evt) {
     } //nessun movimento
 
 
-    initialY = evt.touches[0].clientY;
+    initialY = event.touches[0].clientY;
     //scrollPos = document.documentElement.scrollTop;
 
-    var xUp = evt.touches[0].clientX;
-    var yUp = evt.touches[0].clientY;
+    var xUp = event.touches[0].clientX;
+    var yUp = event.touches[0].clientY;
     
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
@@ -296,13 +293,13 @@ function handleTouchMove(evt) {
         if (distance > 0 || distance < 0) {
             if (yDiff > 0) {
                 /* swipe alto */
-                console.log("Swipe UP");
+                console.log("Swipe up");
                 if (currentViewportPos < viewportList.length - 1) {
                     currentViewportPos++;
                 }
             } else {
                 /* swipe basso */
-                console.log("Swipe DOWN");
+                console.log("Swipe down");
                 if (currentViewportPos > 0) {
                     currentViewportPos--;
                 }
@@ -315,7 +312,7 @@ function handleTouchMove(evt) {
     yDown = null;
 };
 
-function handleTouchEnd(evt) {
+function handleTouchEnd(event) {
 
     timeTouchEnd = Date.now();
 
@@ -323,7 +320,7 @@ function handleTouchEnd(evt) {
     var velocityThreshold = 0.2;
     var velocity = distance / (timeTouchEnd - timeTouchStart);
 
-    console.log("Touch scroll speed: " + velocity);
+    //console.log("Touch scroll speed: " + velocity);
 
     var normalizedDist = distance / window.innerHeight;
 

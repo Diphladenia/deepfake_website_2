@@ -19,4 +19,24 @@
     .video-col, .content-col {
         width: 100%;
     }
+
+    .space-xs-1 {
+        padding-bottom: 1rem;
+    }
+    
+    .space-xs-2 {
+        padding-bottom: 2rem;
+    }
+    
+    .space-xs-3 {
+        padding-bottom: 3rem;
+    }
+    
+    .space-xs-4 {
+        padding-bottom: 4rem;
+    }
+    
+    .space-xs-6 {
+        padding-bottom: 6rem;
+    }
 }

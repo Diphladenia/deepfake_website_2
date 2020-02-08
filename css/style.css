@@ -1,15 +1,13 @@
-footer {
-    width: 100%;
-    height: auto;
-    align-self: flex-end;
-}
-
 html, body, div, h1, h2, h3, p, a {
     font-size: 1vw;
     margin: 0px;
     padding: 0px;
     font-family: 'Raleway', sans-serif;
     color: white;
+}
+
+html, body {
+    background-color: black;
 }
 
 h1, h2 {
@@ -31,7 +29,15 @@ h3 {
     font-size: 2rem;
 }
 
-p {}
+footer {
+    width: 100%;
+    height: auto;
+    align-self: flex-end;
+}
+
+.disable-touch {
+    touch-action: none;
+}
 
 .detail-text p {
     font-size: .75rem;
@@ -69,7 +75,6 @@ p {}
 .viewport {
     display: flex;
     flex-wrap: wrap;
-    background-color: rgba(0, 0, 0, 1);
     height: 100vh;
     max-width: 100%;
     overflow: hidden;
@@ -300,26 +305,6 @@ a:hover {
     color: white;
 }
 
-.space-xs-1 {
-    padding-bottom: 1rem;
-}
-
-.space-xs-2 {
-    padding-bottom: 2rem;
-}
-
-.space-xs-3 {
-    padding-bottom: 3rem;
-}
-
-.space-xs-4 {
-    padding-bottom: 4rem;
-}
-
-.space-xs-6 {
-    padding-bottom: 6rem;
-}
-
 .container-protocol {
     padding: 1.25vw 5vw 0vw 5vw;
 }
@@ -329,6 +314,23 @@ svg {
     height: auto;
 }
 
+.dark {
+    filter: brightness(0);
+}
+
 .navbar-adjustment {
     padding: 50px 0px 0px 50px;
+}
+
+.space-sm-1 {
+    padding-bottom: 1rem;
+}
+.space-sm-3 {
+    padding-bottom: 3rem;
+}
+.space-sm-4 {
+    padding-bottom: 4rem;
+}
+.space-sm-6 {
+    padding-bottom: 6rem;
 }
