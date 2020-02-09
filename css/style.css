@@ -57,6 +57,7 @@ footer {
 }
 
 .top-navbar {
+    backdrop-filter: blur(10px);
     z-index: 9999;
     position: fixed;
     background-color: #202020;
