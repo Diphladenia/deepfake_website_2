@@ -332,6 +332,54 @@ a:hover {
     padding: 1.25vw 5vw 0vw 5vw;
 }
 
+.protocol-sidebadr {
+    position: absolute;
+    width: 13%;
+    background-color: white;
+    padding-top: 3.6%;
+}
+
+.protocol-sidebar-element {
+    padding: 5px;
+    text-align: end;
+    border-right: 3px solid #f0801a;
+}
+
+.protocol-sidebar-label {
+    position: sticky;
+    top: 50px;
+    color: #f0801a;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    padding-right: 2.5%;
+}
+
+#spacing {
+    height: 1%;
+}
+
+#components {
+    height: 13%;
+}
+
+#preparation {
+    height: 26%;
+}
+
+#traininig {
+    height: 36%;
+}
+
+#result {
+    height: 16%;
+}
+
+#postproduction {
+    height: 4%;
+}
+
 svg {
     width: 100%;
     height: auto;
