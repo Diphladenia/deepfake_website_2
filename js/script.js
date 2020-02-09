@@ -21,6 +21,21 @@ $(viewportClass).each(function (i, obj) {
         var btnId = $(this).attr("id");
         $(this).attr("id", id + "-" + btnId);
     });
+
+    if ((i > 1) && (i < 12)) {
+        var mainNode = document.createElement("div");
+        var pNode = document.createElement("p");
+        var textNode = document.createTextNode(("0" + (i - 1)).slice(-2) + ".");    
+
+        mainNode.setAttribute("class", "left-navbar-element");
+        mainNode.setAttribute("id", "left-navbar-element-" + id);
+        mainNode.setAttribute("onClick", "goToVieweport(" + i + ");");
+        
+        pNode.appendChild(textNode); 
+        mainNode.appendChild(pNode); 
+
+        document.getElementById("left-navbar").appendChild(mainNode); 
+    }
 });
 
 var currentViewportPos = 0;
@@ -46,7 +61,7 @@ viewport.registerListener(function(val) {
     console.log("New target: " + val);
 });
 
-viewport.target = "#" + viewportList[getCurrentViewportPos()];
+goToVieweport(getCurrentViewportPos());
 currentViewportPos = getCurrentViewportPos();
 scroll_To("#" + viewportList[getCurrentViewportPos()]);
 
@@ -120,7 +135,6 @@ function elementVisibility(elementClass, elementId) {
 var page = $("html, body");
 
 function scroll_To(id) {
-
     console.log("Scrolling to: " + id);
     //page.stop();    
     $('html,body').animate({
@@ -128,6 +142,11 @@ function scroll_To(id) {
     }, 250, function () {
         //page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
     });
+
+    for (var i = 0; i < viewportList.length; i++) {
+        $(".left-navbar-element#left-navbar-element-" + viewportList[i]).removeClass("left-navbar-element-selected");  
+    }
+    $(".left-navbar-element#left-navbar-element-" + viewport.target.substring(1, viewport.target.length)).addClass("left-navbar-element-selected");
 }
 
 page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function () {
@@ -153,7 +172,7 @@ window.addEventListener("wheel", event => {
                 currentViewportPos--;
             }
         }
-        viewport.target = "#" + viewportList[currentViewportPos];
+        goToVieweport(currentViewportPos);
         scrollValue = event.deltaY;
     }
 
@@ -227,7 +246,6 @@ $(".button").click(function() {
     }
 
 })
-
 
 // TOUCH HANDLER
 document.addEventListener('touchstart', handleTouchStart, false); //bind & fire - evento di inizio tocco
@@ -335,5 +353,9 @@ function handleTouchEnd(event) {
             currentViewportPos--;
         }    }
 
-    viewport.target = "#" + viewportList[currentViewportPos];
+        goToVieweport(currentViewportPos);
+}
+
+function goToVieweport(index) {
+    viewport.target = "#" + viewportList[index];
 }

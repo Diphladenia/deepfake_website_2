@@ -29,4 +29,12 @@
     .navbar-adjustment {
         padding: 100px 0px 0px 100px;
     }
+
+    .protocol-sidebar-element {
+        border-right: 6px solid #f0801a;
+    }
+
+    .protocol-sidebar-label {
+        top: 100px;
+    }
 }
