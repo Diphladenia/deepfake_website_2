@@ -139,7 +139,7 @@ function scroll_To(id) {
     //page.stop();    
     $('html,body').animate({
         scrollTop: $(id).offset().top
-    }, 250, function () {
+    }, 400, function () {
         //page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
     });
 

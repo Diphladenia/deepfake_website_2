@@ -10,6 +10,11 @@ html, body {
     background-color: black;
 }
 
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+
 h1, h2 {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
@@ -91,7 +96,8 @@ footer {
 }
 
 .left-navbar-element {
-    transition: all .25s ease;
+    cursor: pointer;
+    transition: all .4s ease-out;
     padding-left: 15%;
     line-height: 50px;
     width: 100%;
@@ -298,6 +304,8 @@ footer {
 }
 
 .button {
+    transition: all .25s ease;
+    cursor: pointer;
     height: 5vh;
     width: 25%;
     display: flex;
@@ -348,6 +356,7 @@ footer {
 }
 
 a {
+    cursor: pointer;
     color: #f0801a;
 }
 
