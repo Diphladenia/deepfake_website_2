@@ -6,6 +6,7 @@ const viewportID = "viewport";
 var viewportList = [];
 var mostVisible = "undefined";
 var mostVisiblePrec = "undefined";
+var vid = document.getElementById("vid-original");
 
 $(viewportClass).each(function (i, obj) {
     var id = viewportID + i;
@@ -25,16 +26,16 @@ $(viewportClass).each(function (i, obj) {
     if ((i > 1) && (i < 12)) {
         var mainNode = document.createElement("div");
         var pNode = document.createElement("p");
-        var textNode = document.createTextNode(("0" + (i - 1)).slice(-2) + ".");    
+        var textNode = document.createTextNode(("0" + (i - 1)).slice(-2) + ".");
 
         mainNode.setAttribute("class", "left-navbar-element");
         mainNode.setAttribute("id", "left-navbar-element-" + id);
         mainNode.setAttribute("onClick", "goToVieweport(" + i + ");");
-        
-        pNode.appendChild(textNode); 
-        mainNode.appendChild(pNode); 
 
-        document.getElementById("left-navbar").appendChild(mainNode); 
+        pNode.appendChild(textNode);
+        mainNode.appendChild(pNode);
+
+        document.getElementById("left-navbar").appendChild(mainNode);
     }
 });
 
@@ -43,7 +44,7 @@ var currentViewport = viewportList[0];
 
 viewport = {
     targetInternal: viewportList[0],
-    targetListener: function(val) {},
+    targetListener: function (val) { },
     set target(val) {
         this.targetInternal = val;
         this.targetListener(val);
@@ -51,12 +52,12 @@ viewport = {
     get target() {
         return this.targetInternal;
     },
-    registerListener: function(listener) {
+    registerListener: function (listener) {
         this.targetListener = listener;
     }
 }
 
-viewport.registerListener(function(val) {
+viewport.registerListener(function (val) {
     scroll_To(val);
     console.log("New target: " + val);
 });
@@ -144,7 +145,7 @@ function scroll_To(id) {
     });
 
     for (var i = 0; i < viewportList.length; i++) {
-        $(".left-navbar-element#left-navbar-element-" + viewportList[i]).removeClass("left-navbar-element-selected");  
+        $(".left-navbar-element#left-navbar-element-" + viewportList[i]).removeClass("left-navbar-element-selected");
     }
     $(".left-navbar-element#left-navbar-element-" + viewport.target.substring(1, viewport.target.length)).addClass("left-navbar-element-selected");
 }
@@ -228,22 +229,86 @@ function enableScroll() {
 
 document.addEventListener('wheel', preventDefault, { passive: false });
 
-$(".button").click(function() {
+$(".button").click(function () {
     //alert("click on " + $(this).attr("class") + " " + $(this).attr("id"));
 
+
+    var currentViewport;
     for (var i = 0; i < viewportList.length; i++) {
-        if ($(this).attr("id") === viewportList[i] + "-tech") {
-            $(this).addClass("button-selected");
-            $(".button#" + viewportList[i] + "-visual").removeClass("button-selected");
-            $(".tab#" + viewportList[i] + "-tech").show();
-            $(".tab#" + viewportList[i] + "-visual").hide();
-        } else if ($(this).attr("id") === viewportList[i] + "-visual"){
-            $(this).addClass("button-selected");
-            $(".button#" + viewportList[i] + "-tech").removeClass("button-selected");
-            $(".tab#" + viewportList[i] + "-tech").hide();
-            $(".tab#" + viewportList[i] + "-visual").show();
+        if ($(this).attr("id").includes(viewportList[i])) {
+            currentViewport = viewportList[i];
         }
     }
+
+    var type = ($(this).attr("id").substring(currentViewport.length, $(this).attr("id").length));
+
+    console.log(currentViewport + "; " + type);
+
+    var currentTime;
+
+    $("#" + currentViewport).each(function (i, obj) {
+        $($(this).find(".button")).each(function (j, obj) {
+            $(this).removeClass("button-selected");
+
+            $(".tab#" + $(this).attr("id")).hide();
+        });
+
+        $($(this).find("video")).each(function (j, obj) {
+            console.log($(this).attr("id"));
+            if ($(this).attr("id") != undefined) {
+
+                if ($(this).attr("id").includes("vid-")) {
+
+                    var type = $(this).attr("id").substring(3, $(this).attr("id").length);
+
+                    console.log($("#vid-" + type.substring(1, type.length)).css("display"));
+                    if ($("#vid-" + type.substring(1, type.length)).css('display').toLowerCase() !== 'none') {
+                        $("#vid-" + type.substring(1, type.length)).hide();
+                        console.log("----> hiding: " + type);
+                        // console.log("#vid-" + type.substring(1, type.length) + " is now hidden");
+                        currentTime = vid.currentTime;
+
+                    }
+                }
+            }
+        });
+    });
+
+    for (var i = 0; i < viewportList.length; i++) {
+        if ($(this).attr("id") === viewportList[i] + type) {
+            $(this).addClass("button-selected");
+            $(".tab#" + viewportList[i] + type).show();
+            //$("#vid-" + type.substring(1, type.length)).show();
+            console.log("000000: showing: " + type);
+            if ($(this).attr("class").includes("process")) {
+                vid = document.getElementById("vid-" + type.substring(1, type.length));
+                vid.currentTime = currentTime;
+                console.log(currentTime);
+    
+                $("#vid-" + type.substring(1, type.length)).show();
+            } else {
+                console.log("vid not included");
+            }
+
+
+
+        }
+    }
+
+
+    // for (var i = 0; i < viewportList.length; i++) {
+    //     if ($(this).attr("id") === viewportList[i] + "-tech") {
+    //         $(this).addClass("button-selected");
+    //         $(".button#" + viewportList[i] + "-visual").removeClass("button-selected");
+    //         $(".tab#" + viewportList[i] + "-tech").show();
+    //         $(".tab#" + viewportList[i] + "-visual").hide();
+    //     } else if ($(this).attr("id") === viewportList[i] + "-visual"){
+    //         $(this).addClass("button-selected");
+    //         $(".button#" + viewportList[i] + "-tech").removeClass("button-selected");
+    //         $(".tab#" + viewportList[i] + "-tech").hide();
+    //         $(".tab#" + viewportList[i] + "-visual").show();
+    //     }
+    // }
 
 })
 
@@ -277,7 +342,7 @@ function handleTouchStart(event) {
 
 
 function handleTouchMove(event) {
- 
+
     distance = initialY - currentY;
     currentY = event.touches[0].clientY;
     window.scrollTo(0, scrollPos + distance);
@@ -292,7 +357,7 @@ function handleTouchMove(event) {
 
     var xUp = event.touches[0].clientX;
     var yUp = event.touches[0].clientY;
-    
+
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
 
@@ -322,7 +387,7 @@ function handleTouchMove(event) {
                     currentViewportPos--;
                 }
             }
-        }        
+        }
     }
 
     /* reset values */
@@ -351,9 +416,10 @@ function handleTouchEnd(event) {
     if ((normalizedDist < -(scrollThreshold)) || (velocity < -velocityThreshold)) {
         if (currentViewportPos > 0) {
             currentViewportPos--;
-        }    }
+        }
+    }
 
-        goToVieweport(currentViewportPos);
+    goToVieweport(currentViewportPos);
 }
 
 function goToVieweport(index) {
