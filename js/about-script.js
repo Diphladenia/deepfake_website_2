@@ -28,6 +28,15 @@ $(document).ready(function () {
             $('#Interactive #main-' + gIDs[1]).css("opacity", 1)
         }
     });
+    $("#Interactive g").mouseleave(function () {
+        gIDs = $(this).attr('id').split("-");
 
+        if (gIDs[0].toLowerCase() === "main".toLowerCase()) {
+
+            for (var i = 0; i < categories.length; i++) {
+                $('#Interactive #main-' + categories[i]).css("opacity", 1)
+            }
+        }
+    });
 
 });
