@@ -20,7 +20,7 @@ $(document).ready(function () {
         gIDs = $(this).attr('id').split("-");
 
         if (gIDs[0].toLowerCase() === "main".toLowerCase()) {
-        
+
 
             for (var i = 0; i < categories.length; i++) {
                 $('#Interactive #main-' + categories[i]).css("opacity", .1)
