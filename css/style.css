@@ -36,7 +36,7 @@ h3 {
 
 p {
     font-size: 1rem;
-}  
+}
 
 .detail-text p {
     font-size: .75rem;
@@ -347,7 +347,7 @@ footer {
     height: 8vh;
 }
 
-.orange {
+.orange, .orange p {
     color: #f0801a;
 }
 
