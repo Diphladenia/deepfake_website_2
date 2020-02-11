@@ -473,7 +473,7 @@ svg {
     transform: translate(-100);
 }
 
-.source-text p, .source-text a {
+.source-text p, .source-text a, .source-text, .source-text strong, .source-text br {
     font-size: .75rem;
 }
 
