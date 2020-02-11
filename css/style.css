@@ -303,6 +303,10 @@ footer {
     width: 50%;
 }
 
+.interactive-detail-col {
+    width: 100%;
+}
+
 .button {
     transition: all .25s ease;
     cursor: pointer;
@@ -311,6 +315,11 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.process {
+    width: 15%;
+    overflow: hidden;
 }
 
 .button-selected {
@@ -332,6 +341,10 @@ footer {
 .detail-text {
     padding-left: 1vw;
     max-width: 20vw;
+}
+
+.interactive-detail-text {
+    padding-left: 1vw;
 }
 
 .ico {
@@ -452,3 +465,11 @@ svg {
 .col-sm-count-1 {
     column-count: 1;
 }
+.interactive-video {
+    height: 100%;
+}
+
+.translate-100 {
+    transform: translate(-100);
+}
+

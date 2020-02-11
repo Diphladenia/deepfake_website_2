@@ -6,6 +6,7 @@ const viewportID = "viewport";
 var viewportList = [];
 var mostVisible = "undefined";
 var mostVisiblePrec = "undefined";
+var vid = document.getElementById("vid-original");
 
 $(viewportClass).each(function (i, obj) {
     var id = viewportID + i;
@@ -231,19 +232,72 @@ document.addEventListener('wheel', preventDefault, { passive: false });
 $(".button").click(function() {
     //alert("click on " + $(this).attr("class") + " " + $(this).attr("id"));
 
+
+    var currentViewport;
     for (var i = 0; i < viewportList.length; i++) {
-        if ($(this).attr("id") === viewportList[i] + "-tech") {
-            $(this).addClass("button-selected");
-            $(".button#" + viewportList[i] + "-visual").removeClass("button-selected");
-            $(".tab#" + viewportList[i] + "-tech").show();
-            $(".tab#" + viewportList[i] + "-visual").hide();
-        } else if ($(this).attr("id") === viewportList[i] + "-visual"){
-            $(this).addClass("button-selected");
-            $(".button#" + viewportList[i] + "-tech").removeClass("button-selected");
-            $(".tab#" + viewportList[i] + "-tech").hide();
-            $(".tab#" + viewportList[i] + "-visual").show();
+        if ($(this).attr("id").includes(viewportList[i])) {
+            currentViewport = viewportList[i];
         }
     }
+    
+    var type = ($(this).attr("id").substring(currentViewport.length, $(this).attr("id").length));
+
+    console.log(currentViewport + "; " + type);
+
+    var currentTime;
+    
+    $("#" + currentViewport).each(function (i, obj) {
+        $($(this).find(".button")).each(function (j, obj) {
+            $(this).removeClass("button-selected");
+
+            $(".tab#" + $(this).attr("id")).hide();
+        });
+
+        $($(this).find("video")).each(function (j, obj) {
+            var type = $(this).attr("id").substring(3, $(this).attr("id").length);
+            
+            console.log($("#vid-" + type.substring(1, type.length)).css("display"));
+            if ($("#vid-" + type.substring(1, type.length)).css('display').toLowerCase() !== 'none') {
+                $("#vid-" + type.substring(1, type.length)).hide();
+                console.log("----> hiding: " + type);
+                // console.log("#vid-" + type.substring(1, type.length) + " is now hidden");
+                currentTime = vid.currentTime;
+                
+
+            }
+        });
+    });
+
+    for (var i = 0; i < viewportList.length; i++) {
+        if ($(this).attr("id") === viewportList[i] + type) {
+            $(this).addClass("button-selected");
+            $(".tab#" + viewportList[i] + type).show();
+            //$("#vid-" + type.substring(1, type.length)).show();
+            console.log("000000: showing: " + type);
+            vid = document.getElementById("vid-" + type.substring(1, type.length));
+            vid.currentTime = currentTime;
+            console.log(currentTime);
+            
+            $("#vid-" + type.substring(1, type.length)).show();
+
+
+        }
+    }
+
+
+    // for (var i = 0; i < viewportList.length; i++) {
+    //     if ($(this).attr("id") === viewportList[i] + "-tech") {
+    //         $(this).addClass("button-selected");
+    //         $(".button#" + viewportList[i] + "-visual").removeClass("button-selected");
+    //         $(".tab#" + viewportList[i] + "-tech").show();
+    //         $(".tab#" + viewportList[i] + "-visual").hide();
+    //     } else if ($(this).attr("id") === viewportList[i] + "-visual"){
+    //         $(this).addClass("button-selected");
+    //         $(".button#" + viewportList[i] + "-tech").removeClass("button-selected");
+    //         $(".tab#" + viewportList[i] + "-tech").hide();
+    //         $(".tab#" + viewportList[i] + "-visual").show();
+    //     }
+    // }
 
 })
 

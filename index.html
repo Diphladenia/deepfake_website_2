@@ -320,12 +320,153 @@
             </div>
         </div>
     </div>
-    </div>
+
 
     <!-- PAGE 5 -->
     <!-- IVANA-ANNE -->
     <div class="viewport">
-        <p>Ivana-Anne (WIP)</p>
+        <div class="content-row h60">
+
+            <div class="content-col title-col top-sx">
+                <div class="title">
+                    <h2>03. Process</h2>
+                </div>
+                <div class="top-space-5 left-space-5 right-space-5">
+                    <h3>So, what steps do you have to take in order to make a deepfake?
+                    </h3>
+                </div>
+                <div class="orange top-space-2_5 left-space-5 right-space-5">
+                    <p>
+                        You need two videos, a source video, and a target video. The program will train itself according
+                        to both and create a mask that can be placed onto the target video with video editing software.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="content-col video-col top-dx">
+                <div class="video-container">
+                    <div class="video-player">
+                        <div class="interactive-video" >
+                            <video class="video-adapt" id="vid-original" autoplay loop muted controls class="scale-2">
+                                <source src="res/vid/00-original.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="interactive-video">
+                            <video class="video-adapt" id="vid-dataset" style="display: none;" autoplay loop muted controls class="scale-2">
+                                <source src="res/vid/" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="interactive-video">
+                            <video class="video-adapt" id="vid-mask" style="display: none;" autoplay loop muted controls class="scale-2">
+                                <source src="res/vid/01-mask.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="interactive-video">
+                            <video class="video-adapt" id="vid-alignment" style="display: none;" autoplay loop muted controls class="scale-2">
+                                <source src="res/vid/02-alignment.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="interactive-video">
+                            <video class="video-adapt" id="vid-deepfake" style="display: none;" autoplay loop muted controls class="scale-2">
+                                <source src="res/vid/03-deepfake.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="interactive-video">
+                            <video class="video-adapt" id="vid-post" style="display: none;" autoplay loop muted controls class="scale-2">
+                                <source src="res/vid/04-post.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-row h40">
+
+            <div class="content-col title-col bottom-sx top-space-5 space-between">
+
+            </div>
+
+            <div class="content-col video-col bottom-dx">
+                <div class="details">
+                    <div class="detail-row border-bottom">
+
+                        <div class="button process button-selected" id="original">
+                            <p>Original</p>
+                        </div>
+                        <div class="button process" id="dataset">
+                            <p>Dataset</p>
+                        </div>
+                        <div class="button process" id="mask">
+                            <p>Mask</p>
+                        </div>
+                        <div class="button process" id="alignment">
+                            <p>Alignment</p>
+                        </div>
+                        <div class="button process" id="deepfake">
+                            <p>Deepfake</p>
+                        </div>
+                        <div class="button process" id="post">
+                            <p>Post</p>
+                        </div>
+                    </div>
+                    <div class="interactive-detail-col">
+                        <div class="tab" id="original">
+                            <div class="interactive-detail-col left-space-2_5 top-space-2_5">
+                                <div class="interactive-detail-text">
+                                    <p>Select a target video you want to insert a face into. Choosing a video that is steady and consistent will give you a better result. </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" id="dataset" style="display: none;">
+                            <div class="interactive-detail-col left-space-2_5 top-space-2_5">
+                                <div class="interactive-detail-text">
+                                    <p>Record a dataset for the face you want to place, matching the lighting and expressions as much as possible.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" id="mask" style="display: none;">
+                            <div class="interactive-detail-col left-space-2_5 top-space-2_5">
+                                <div class="interactive-detail-text">
+                                    <p>Cover the faces from other people in the target video, else, the algorithm will use them to train itself. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" id="alignment" style="display: none;">
+                            <div class="interactive-detail-col left-space-2_5 top-space-2_5">
+                                <div class="interactive-detail-text">
+                                    <p>The algorithm will crop the faces for the training process and save the position to later position the output mask correctly.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" id="deepfake" style="display: none;">
+                            <div class="interactive-detail-col left-space-2_5 top-space-2_5">
+                                <div class="interactive-detail-text">
+                                    <p>The algorithm generates a mask of the face of the source that you need to align onto the target video. </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" id="post" style="display: none;">
+                            <div class="interactive-detail-col left-space-2_5 top-space-2_5">
+                                <div class="interactive-detail-text">
+                                    <p>Video editing software will allow you to blend in the mask better and refine the final result. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- PAGE 6 -->
@@ -431,15 +572,15 @@
                 </div>
                 <div class="top-space-5 left-space-5 right-space-5">
                     <h3>So how susceptible are you? Can we steal your social
-                      media content and create a good deepfake?
+                        media content and create a good deepfake?
                     </h3>
                 </div>
                 <div class="orange top-space-2_5 left-space-5 right-space-5">
                     <p>
-                      We took all the Facebook images from one of our team members
-                    and created a deepfake. She smiled in almost all of the source
-                    images, as a result, the algorithm could not generate
-                    nonsmiling output.
+                        We took all the Facebook images from one of our team members
+                        and created a deepfake. She smiled in almost all of the source
+                        images, as a result, the algorithm could not generate
+                        nonsmiling output.
                     </p>
 
                 </div>
@@ -525,29 +666,29 @@
 
                             <!-- DX ICON COL -->
                             <div class="detail-col left-space-2_5 top-space-2_5">
-                              <div class="icon-group">
-                              <div class="ico">
-                                  <img class="ico" src="/res/ico/blur.svg">
-                              </div>
-                              <div class="detail-text">
-                                  <p><strong>Blurred face: </strong>
-                                      <br>The mask is blurred. There is a difference in
-                                      sharpness between the mask and the rest of the video, either
-                                      blurred or a different resolution.</br>
-                                  </p>
-                              </div>
-                          </div>
-                          <div class="icon-group">
-                                  <div class="ico">
-                                      <img class="ico" src="/res/ico/profile.svg">
-                                  </div>
-                                  <div class="detail-text">
-                                      <p><strong>Profile borders:</strong>
-                                          <br>The side view of the face seems incorrect. The deepfake
-                                          mask is not working, less detailed, or incorrectly aligned. </br>
-                                      </p>
-                                  </div>
-                              </div>
+                                <div class="icon-group">
+                                    <div class="ico">
+                                        <img class="ico" src="/res/ico/blur.svg">
+                                    </div>
+                                    <div class="detail-text">
+                                        <p><strong>Blurred face: </strong>
+                                            <br>The mask is blurred. There is a difference in
+                                            sharpness between the mask and the rest of the video, either
+                                            blurred or a different resolution.</br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="icon-group">
+                                    <div class="ico">
+                                        <img class="ico" src="/res/ico/profile.svg">
+                                    </div>
+                                    <div class="detail-text">
+                                        <p><strong>Profile borders:</strong>
+                                            <br>The side view of the face seems incorrect. The deepfake
+                                            mask is not working, less detailed, or incorrectly aligned. </br>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -556,14 +697,14 @@
                         <div class="detail-col left-space-2_5 top-space-2_5">
                             <div class="detail-text">
                                 <p> A video contains much more facial nuances
-                                            compared to the images we took from Facebook.
-                                            Our team member presented herself on the
-                                            internet according to self-selected images,
-                                            leaving out all the content needed to create
-                                            realistic facial expressions for speech.
-                                            Although better technologies might be able to
-                                            fabricate expressions, without diverse source
-                                            material, it will never convince an acquaintance.</p>
+                                    compared to the images we took from Facebook.
+                                    Our team member presented herself on the
+                                    internet according to self-selected images,
+                                    leaving out all the content needed to create
+                                    realistic facial expressions for speech.
+                                    Although better technologies might be able to
+                                    fabricate expressions, without diverse source
+                                    material, it will never convince an acquaintance.</p>
                             </div>
                         </div>
                         <div class="detail-col left-space-2_5 top-space-2_5">
@@ -1152,8 +1293,8 @@
             </div>
 
         </div>
-        <div class="col-sm-6 col-sm-offset-6" >
-        <img src="/res/svg/QR code .svg">
+        <div class="col-sm-6 col-sm-offset-6">
+            <img src="/res/svg/QR code .svg">
         </div>
         <footer class="container-fluid space-xs-3 space-sm-3">
             <div class="row">
