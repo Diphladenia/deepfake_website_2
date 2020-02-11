@@ -16,10 +16,11 @@ $(document).ready(function () {
     ];
     var gIDs;
 
-    $("#Interactive g").hover(function () {
+    $("#Interactive g").click(function () {
         gIDs = $(this).attr('id').split("-");
 
         if (gIDs[0].toLowerCase() === "main".toLowerCase()) {
+        
 
             for (var i = 0; i < categories.length; i++) {
                 $('#Interactive #main-' + categories[i]).css("opacity", .1)
@@ -28,15 +29,5 @@ $(document).ready(function () {
         }
     });
 
-    $("#Interactive g").mouseleave(function () {
-        gIDs = $(this).attr('id').split("-");
-
-        if (gIDs[0].toLowerCase() === "main".toLowerCase()) {
-
-            for (var i = 0; i < categories.length; i++) {
-                $('#Interactive #main-' + categories[i]).css("opacity", 1)
-            }
-        }
-    });
 
 });
